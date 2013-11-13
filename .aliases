@@ -1,0 +1,101 @@
+#!/usr/bin/env bash
+# Copyright (c) 2013, Brandon Bernie
+# All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+#
+# 1. Redistributions of source code must retain the above copyright notice,
+#    this list of conditions and the following disclaimer.
+# 2. Redistributions in binary form must reproduce the above copyright
+#    notice, this list of conditions and the following disclaimer in the
+#    documentation and/or other materials provided with the distribution.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+# ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+# LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+# INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+# CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+# ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+# POSSIBILITY OF SUCH DAMAGE.
+
+#############################################################################
+# Author: Brandon Bernie
+# Email : bmbernie@gmail.com
+# File  : .aliases
+# OS    : Mac OS X [Tested on Mavericks]
+#############################################################################
+
+#############################################################################
+# System alases - Ubuntu / OS X
+#############################################################################
+
+# load osx aliases
+if [ $(uname) == "Darwin" ]; then
+  source $HOME/dotfiles/.aliases-osx
+fi
+
+if [ $(uname) == "Linux" ]; then
+  source $HOME/dotfiles/.aliases-linux
+fi
+
+# Draw an ascii tree of the filesystem from where you are
+alias mytree="find . -type d | sed -e 1d -e 's/[^-][^\/]*\//--/g' -e 's/^/ /' -e 's/-/|-/'"
+
+# Process Management
+alias tu='top -o cpu'
+alias tm='top -o vsize'
+
+# Trim new lines and copy to clipboard
+alias c="tr -d '
+' | pbcopy"
+
+# ROT13-encode text. Works for decoding, too! ;)
+alias rot13='tr a-zA-Z n-za-mN-ZA-M'
+
+# Intuitive map function
+# For example, to list all directories that contain a certain file:
+# find . -name .gitattributes | map dirname
+alias map="xargs -n1"
+
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
+
+# Gzip-enabled `curl`
+alias gurl='curl --compressed'
+
+alias reload="exec $SHELL -l"
+
+#############################################################################
+# Development - Node.js
+#############################################################################
+
+if [ `command -v rlwrap | grep "rlwrap" -c` == "1" ] ; then
+  alias node="env NODE_NO_READLINE=1 rlwrap node"
+  alias node_repl="node -e \"require('repl').start({ignoreUndefined: true})\""
+  export NODE_DISABLE_COLORS=1
+  if [ -s $HOME/.nvm/nvm.sh ]; then
+    NVM_DIR=$HOME/.nvm
+    source ${HOME}/.nvm/nvm.sh
+    nvm use v0.10.21 &> /dev/null
+  fi
+fi
+
+#############################################################################
+# Network tools
+#############################################################################
+
+alias localip='ipconfig getifaddr en1 ; [[ $? -ne 0 ]] && ipconfig getifaddr en0'
+alias ipext='curl -s http://checkip.dyndns.org/ | grep -o '[0-9][0-9]*.[0-9][0-9]*.[0-9][0-9]*.[0-9]*''
+alias subnet='ip | grep -o "[0-9][0-9]*.[0-9][0-9]*.[0-9][0-9]*"'
+alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+
+# Enhanced WHOIS lookups
+alias whois="whois -h whois-servers.net"
+
+# Flush Directory Service cache
+alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
