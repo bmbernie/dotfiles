@@ -38,7 +38,7 @@ done
 unset file
 
 if [ $(uname) == "Darwin" ]; then
-  source .bash_profile-osx  
+  source $HOME/dotfiles/.bash_profile-osx
 fi
 
 # Case-insensitive globbing (used in pathname expansion)
