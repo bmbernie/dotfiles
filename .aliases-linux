@@ -35,3 +35,5 @@
 #############################################################################
 
 eval `dircolors ~/dotfiles/dircolors-solarized/dircolors.256dark`
+alias ls='ls --color-auto'
+alias ls='ls -al --color-auto'
