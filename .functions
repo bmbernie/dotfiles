@@ -150,6 +150,13 @@ function getcertnames() {
   fi
 }
 
+# flac -> conversion script
+function flactomp3(){
+  for f in *.flac; 
+    do ffmpeg -i "$f" -acodec libmp3lame -ab 320k  "${f%.flac}.mp3"; 
+  done
+}
+
 # `tre` is a shorthand for `tree` with hidden files and color enabled, ignoring
 # the `.git` directory, listing directories first. The output gets piped into
 # `less` with options to preserve color and line numbers, unless the output is
