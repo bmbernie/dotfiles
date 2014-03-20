@@ -39,6 +39,9 @@ eval `gdircolors ~/dotfiles/dircolors-solarized/dircolors.256dark`
 alias ls='gls --color=always'
 alias ll='ls -al'
 
+# zenmap without all the extra shit
+alias zenmap='sudo python /usr/local/bin/zenmap'
+
 # Clean up LaunchServices to remove duplicates in the “Open With” menu
 alias lscleanup='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder'
 
