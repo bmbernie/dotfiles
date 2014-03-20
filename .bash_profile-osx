@@ -52,7 +52,3 @@ if [ -d $HOME/dotfiles/bash_completion.d ]; then
   done
   unset usrcomp
 fi
-
-setenv LESS "-Micr"
-
-

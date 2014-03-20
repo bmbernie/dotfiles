@@ -54,6 +54,9 @@ alias tm='top -o vsize'
 alias c="tr -d '
 ' | pbcopy"
 
+# Less with colors
+alias less='less -Micr'
+
 # ROT13-encode text. Works for decoding, too! ;)
 alias rot13='tr a-zA-Z n-za-mN-ZA-M'
 
