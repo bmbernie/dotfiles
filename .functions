@@ -32,7 +32,7 @@
 
 function pman()
 {
-  man -t "${1}" | open -a Preview
+  man -t "${1}" | open -f -a /Applications/Preview.app
 }
 
 # Change working directory to the top-most Finder window location
