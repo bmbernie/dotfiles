@@ -1,0 +1,79 @@
+# START livestreamer completion
+# This file is in the public domain
+
+_livestreamer()
+{
+  local curr prev opts
+  COMPREPLY=()
+  cur="${COMP_WORDS[COMP_CWORD]}"
+  prev="${COMP_WORDS[COMP_CWORD-1]}"
+
+  opts="
+  best
+  twitch.tv/beyondthesummit
+  twitch.tv/dotastarladder_en
+  twitch.tv/dreamleague
+  twitch.tv/arteezy
+  twitch.tv/dotademon
+  youtube.com
+  -a
+  -c
+  --cmdline \
+  -e \
+  --errorlog \
+  -f \
+  --force \
+  --fifo \
+  -h \
+  --help \
+  --hds-live-edge \
+  --hds-fragment-buffer \
+  --http-proxy \
+  --https-proxy \
+  -l \
+  --loglevel \
+  -n \
+  -o \
+  -O \
+  --output \
+  -p \
+  --player \
+  --player-args \
+  --player-continuous-http \
+  --player-fifo \
+  --player-http \
+  --player-passthrough \
+  --player-no-close \
+  --plugins \
+  --plugin-dirs \
+  -Q \
+  -r \
+  --ringbuffer-size \
+  --rtmpdump \
+  --rtmpdump-proxy \
+  --quiet \
+  --stdout \
+  --stream-types \
+  --stream-sorting-excludes \
+  --twitch-cookie \
+  --jtv-cookie \
+  --jtv-password
+  --twitch-password \
+  --twitch-oauth-token \
+  --twitch-oauth-authenticate \
+  --ustream-password \
+  --crunchyroll-username \
+  --crunchyroll-password \
+  --crunchyroll-purge-credentials\
+  -v \
+  --verbose-player \
+  --version \
+  "
+
+  COMPREPLY=($(compgen -W "${opts}" -- ${cur}))  
+  return 0
+}
+
+complete -F _livestreamer livestreamer
+
+# END livestreamer completion
