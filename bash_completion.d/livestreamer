@@ -16,6 +16,8 @@ _livestreamer()
   twitch.tv/arteezy
   twitch.tv/dotademon
   youtube.com
+  http://tv.majorleaguegaming.com/show/dotacinema
+  http://tv.majorleaguegaming.com/show/joinDOTA
   -a
   -c
   --cmdline \
