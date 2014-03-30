@@ -1,9 +1,11 @@
+#!/usr/local/bin/bash
+
 # START livestreamer completion
 # This file is in the public domain
 
 _livestreamer()
 {
-  local curr prev opts
+  local cur prev opts
   COMPREPLY=()
   cur="${COMP_WORDS[COMP_CWORD]}"
   prev="${COMP_WORDS[COMP_CWORD-1]}"
@@ -77,5 +79,3 @@ _livestreamer()
 }
 
 complete -F _livestreamer livestreamer
-
-# END livestreamer completion
