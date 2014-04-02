@@ -81,7 +81,7 @@ alias finder='open .'
 alias firefox='open -a Firefox'
 alias preview='open -a Preview'
 alias unarchiver='open -a "The Unarchiver"'
-#alias vlc='open -a vlc'
+alias vlc='/Applications/VLC.app/Contents/MacOS/VLC''
 
 # Empty the trash on all mounted volume
 alias emptytrash='sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl'
