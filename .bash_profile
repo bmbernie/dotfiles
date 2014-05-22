@@ -30,6 +30,12 @@
 # OS    : Mac OS X [Tested on Mavericks]
 #############################################################################
 
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
 #set up bash
 for file in ~/.dotfiles/.{path,bash_prompt,exports,aliases,functions,extra}; do
   [ -r "$file" ] && [ -f "$file" ] && source "$file"
@@ -46,6 +52,9 @@ shopt -s nocaseglob
 shopt -s histappend
 # Autocorrect typos in path names when using `cd`
 shopt -s cdspell
+# Check the window size after each command and, if neccessary
+# update the value of LINES and COLUMNS
+shopt -s checkwinsize
 
 # Enable some Bash 4 features when possible:
 # * `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`

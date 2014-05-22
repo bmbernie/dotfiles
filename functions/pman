@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 # Copyright (c) 2013, Brandon Bernie
 # All rights reserved.
 #
@@ -6,10 +6,10 @@
 # modification, are permitted provided that the following conditions are met:
 #
 # 1. Redistributions of source code must retain the above copyright notice,
-#    this list of conditions and the following disclaimer.
+# this list of conditions and the following disclaimer.
 # 2. Redistributions in binary form must reproduce the above copyright
-#    notice, this list of conditions and the following disclaimer in the
-#    documentation and/or other materials provided with the distribution.
+# notice, this list of conditions and the following disclaimer in the
+# documentation and/or other materials provided with the distribution.
 #
 # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 # AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -26,39 +26,22 @@
 #############################################################################
 # Author: Brandon Bernie
 # Email : bmbernie@gmail.com
-# File  : .exports
-# OS    : Mac OS X [Tested on Mavericks]
+# File : .functions
+# OS : Mac OS X [Tested on Mavericks]
 #############################################################################
 
-export EDITOR="vim"
-
-export HISTSIZE=1000
-export HISTFILESIZE=2000
-
-# Don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-export HISTCONTROL=ignoreboth
-
-# Make some commands not show up in history
-export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help:df:ll:man:w:h:top"
-
-# Prefer US English and use UTF-8
-export LANG="en_US"
-export LC_ALL="en_US.UTF-8"
-
-# Highlight section titles in manual pages
-export LESS_TERMCAP_md="$ORANGE"
-
-# Don’t clear the screen after quitting a manual page
-export MANPAGER="less -X"
-export PAGER="less"
-
-# Always enable colored `grep` output
-export GREP_OPTIONS="--color=auto"
-
-# Link Homebrew casks in `/Applications` rather than `~/Applications`
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-
-if [ "$TERM" == "screen" ]; then
-export TERM="xterm-256color"
+# OSX
+if [ $(uname) == "Darwin" ]; then
+  function pman()
+  {
+    man -t "${1}" | open -f -a /Applications/Preview.app
+  }
 fi
+
+# Linux
+function pman()
+{
+  man -t "${1}" | open -f -a /Applications/Preview.app
+}
+
+
