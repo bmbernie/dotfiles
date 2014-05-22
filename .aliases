@@ -40,7 +40,7 @@ if [ $(uname) == "Darwin" ]; then
 fi
 
 if [ $(uname) == "Linux" ]; then
-  source $HOME/dotfiles/.aliases-linux
+  source $HOME/.dotfiles/.aliases-linux
 fi
 
 # Draw an ascii tree of the filesystem from where you are
@@ -50,20 +50,11 @@ alias mytree="find . -type d | sed -e 1d -e 's/[^-][^\/]*\//--/g' -e 's/^/ /' -e
 alias tu='top -o cpu'
 alias tm='top -o vsize'
 
-# Trim new lines and copy to clipboard
-alias c="tr -d '
-' | pbcopy"
-
 # Less with colors
 alias less='less -irX'
 
 # ROT13-encode text. Works for decoding, too! ;)
 alias rot13='tr a-zA-Z n-za-mN-ZA-M'
-
-# Intuitive map function
-# For example, to list all directories that contain a certain file:
-# find . -name .gitattributes | map dirname
-alias map="xargs -n1"
 
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
@@ -72,21 +63,6 @@ alias sudo='sudo '
 alias gurl='curl --compressed'
 
 alias reload="exec $SHELL -l"
-
-#############################################################################
-# Development - Node.js
-#############################################################################
-
-if [ `command -v rlwrap | grep "rlwrap" -c` == "1" ] ; then
-  alias node="env NODE_NO_READLINE=1 rlwrap node"
-  alias node_repl="node -e \"require('repl').start({ignoreUndefined: true})\""
-  export NODE_DISABLE_COLORS=1
-  if [ -s $HOME/.nvm/nvm.sh ]; then
-    NVM_DIR=$HOME/.nvm
-    source ${HOME}/.nvm/nvm.sh
-    nvm use v0.10.21 &> /dev/null
-  fi
-fi
 
 #############################################################################
 # Network tools
@@ -100,5 +76,3 @@ alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[
 # Enhanced WHOIS lookups
 alias whois="whois -h whois-servers.net"
 
-# Flush Directory Service cache
-alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"

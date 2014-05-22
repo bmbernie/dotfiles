@@ -54,6 +54,3 @@ shopt -s cdspell
 for option in autocd globstar; do
   shopt -s "$option" 2> /dev/null
 done
-
-[ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh # This loads NVM
-
