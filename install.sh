@@ -12,7 +12,7 @@ fi
 ln -s $HOME/.dotfiles/.tmux.conf $HOME/.tmux.conf
 
 cd $HOME
-rm .dotfiles/solarized
+rm -rf .dotfiles/solarized
 git clone https://github.com/altercation/solarized .dotfiles/solarized
-rm .dotfiles/dircolors-solarized
+rm -rf .dotfiles/dircolors-solarized
 git clone https://github.com/seebi/dircolors-solarized .dotfiles/dircolors-solarized
