@@ -36,7 +36,7 @@
 
 # load osx aliases
 if [ $(uname) == "Darwin" ]; then
-  source $HOME/dotfiles/.aliases-osx
+  source $HOME/.dotfiles/.aliases-osx
 fi
 
 if [ $(uname) == "Linux" ]; then
@@ -75,4 +75,3 @@ alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[
 
 # Enhanced WHOIS lookups
 alias whois="whois -h whois-servers.net"
-

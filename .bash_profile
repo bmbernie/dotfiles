@@ -31,14 +31,13 @@
 #############################################################################
 
 #set up bash
-
-for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
+for file in ~/.dotfiles/.{path,bash_prompt,exports,aliases,functions,extra}; do
   [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 unset file
 
 if [ $(uname) == "Darwin" ]; then
-  source $HOME/dotfiles/.bash_profile-osx
+  source $HOME/.dotfiles/.bash_profile-osx
 fi
 
 # Case-insensitive globbing (used in pathname expansion)

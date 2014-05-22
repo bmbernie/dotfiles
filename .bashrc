@@ -30,4 +30,4 @@
 # OS    : Mac OS X [Tested on Mavericks]
 #############################################################################
 
-source ~/.bash_profile
+source ~/.dotfiles/.bash_profile

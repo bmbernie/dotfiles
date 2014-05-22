@@ -44,8 +44,8 @@ if [ -d /usr/local/etc/bash_completion.d ]; then
   unset usrcomp
 fi
 
-if [ -d $HOME/dotfiles/bash_completion.d ]; then
-  for usrcomp in `find $HOME/dotfiles/bash_completion.d`; do
+if [ -d $HOME/.dotfiles/bash_completion.d ]; then
+  for usrcomp in `find $HOME/.dotfiles/bash_completion.d`; do
     if [ -f $usrcomp ]; then
       source $usrcomp;
     fi;
