@@ -37,7 +37,7 @@ case $- in
 esac
 
 #set up bash
-for file in ~/.dotfiles/.{path,bash_prompt,exports,aliases,functions,extra}; do
+for file in ~/.dotfiles/.{path,bash_prompt,functions,exports,aliases,extra}; do
   [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 unset file

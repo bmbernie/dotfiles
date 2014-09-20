@@ -31,3 +31,13 @@
 #############################################################################
 
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH="$HOME/Library/Haskell/bin:$PATH"
+
+
+if [ -f $HOME/.dotfiles/.engagement ]; then
+  source $HOME/.dotfiles/.engagement
+fi
+
+if [ $ENGAGEMENT ]; then
+  export PATH="$ENGAGEMENT:$PATH"
+fi

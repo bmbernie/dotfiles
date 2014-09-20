@@ -75,6 +75,7 @@ alias firefox='open -a Firefox'
 alias preview='open -a Preview'
 alias unarchiver='open -a "The Unarchiver"'
 alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
+alias burp='java -XX:MaxPermSize=1G -Xmx1024m -jar ~/tools/burp/burpsuite_pro.jar > /dev/null 2>&1 &'
 
 # Suspend the current account - Effectively going to sleep and putting up the login window
 alias afk='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
