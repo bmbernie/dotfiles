@@ -35,8 +35,6 @@ git config --global push.default upstream
 # commits)
 git config --global core.autocrlf input
 
-script_dir="$( cd "$( dirname "$0" )" && pwd )"
-
 # Forces the use of SSH instead of HTTPS for any URLs that point to github.
 # This means that if a repo uses "https://github/..." for "origin", we will
 # automatically use SSH. No more password prompts!

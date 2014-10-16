@@ -1,34 +1,5 @@
-" Copyright (c) 2013, Brandon Bernie
-" All rights reserved.
-"
-" Redistribution and use in source and binary forms, with or without
-" modification, are permitted provided that the following conditions are met:
-"
-" 1. Redistributions of source code must retain the above copyright notice,
-"    this list of conditions and the following disclaimer.
-" 2. Redistributions in binary form must reproduce the above copyright
-"    notice, this list of conditions and the following disclaimer in the
-"    documentation and/or other materials provided with the distribution.
-"
-" THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-" IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-" ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
-" LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-" CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-" SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-" INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
-" CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-" ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-" POSSIBILITY OF SUCH DAMAGE.
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Author: Brandon Bernie
-" Email : bmbernie@gmail.com
-" File  : .vimrc
-" OS    : Mac OS X [Tested on Mavericks]
-" What  : set up the vim editor
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" .vimrc
+" brandon bernie
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                preamble                                 "
@@ -39,7 +10,7 @@ set nocompatible
 filetype off
 
 " Setup vunle
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/dotfiles/vim/bundle/Vundle.vim
 call vundle#begin()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -49,7 +20,7 @@ call vundle#begin()
 " vundle will add the plugin folders to the runtimepath only after it has seen
 " the plugin's Plugin command.
 
-Plugin 'gmarik/Vundle.vim' 
+Plugin 'gmarik/Vundle.vim'
 Plugin 'bling/vim-airline'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'nathanaelkane/vim-indent-guides'
@@ -291,29 +262,17 @@ endif
 "                                go-vim                                   "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-
-" Show a list of interfaces which is implemented by the type under your
-" cursor with <Leader>s
-autocmd vimrc FileType go nmap <Leader>s <Plug>(go-implements)
-  " Show type info for the word under your cursor with <Leader>i
-  au vimrc FileType go nmap <Leader>i <Plug>(go-info)
-  " Open the relevant Godoc for the word under the cursor with <Leader>gd
-  au FileType go nmap <Leader>gd <Plug>(go-doc) 
-  " Open the relevant Godoc for the word under the cursor vertically <Leader>gv
-  au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-
-  au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
-
-  au FileType go nmap <leader>r <Plug>(go-run)
-  au FileType go nmap <leader>b <Plug>(go-build)
-  au FileType go nmap <leader>t <Plug>(go-test)
-  au FileType go nmap <leader>c <Plug>(go-coverage)
-
-  au FileType go nmap gd <Plug>(go-def)
-
-  au FileType go nmap <Leader>ds <Plug>(go-def-split)
-  au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
-  au FileType go nmap <Leader>dt <Plug>(go-def-tab)
-
-  au FileType go nmap <Leader>e <Plug>(go-rename)
-
+au vimrc FileType go nmap <Leader>gs <Plug>(go-implements)
+au vimrc FileType go nmap <Leader>gi <Plug>(go-info)
+au vimrc FileType go nmap <Leader>gd <Plug>(go-doc) 
+au vimrc FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+au vimrc FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+au vimrc FileType go nmap <leader>gr <Plug>(go-run)
+au vimrc FileType go nmap <leader>gb <Plug>(go-build)
+au vimrc FileType go nmap <leader>gt <Plug>(go-test)
+au vimrc FileType go nmap <leader>gc <Plug>(go-coverage)
+au vimrc FileType go nmap <leader>gd <Plug>(go-def)
+au vimrc FileType go nmap <Leader>ds <Plug>(go-def-split)
+au vimrc FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au vimrc FileType go nmap <Leader>dt <Plug>(go-def-tab)
+au vimrc FileType go nmap <Leader>ge <Plug>(go-rename)
