@@ -7,13 +7,13 @@ case $- in
 esac
 
 #set up bash
-for file in ~/.dotfiles/.{path,exports,functions,bash_prompt,aliases}; do
+for file in $HOME/dotfiles/bash/{path,exports,functions,bash_prompt,aliases}; do
   [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 unset file
 
 if [ $(uname) == "Darwin" ]; then
-  source $HOME/.dotfiles/.bash_profile-osx
+  source $HOME/dotfiles/bash/bash_profile-osx
 fi
 
 # Case-insensitive globbing (used in pathname expansion)

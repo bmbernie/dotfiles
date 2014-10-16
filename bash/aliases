@@ -6,12 +6,12 @@
 
 # load osx aliases
 if [ $(uname) == "Darwin" ]; then
-  source $HOME/.dotfiles/.aliases-osx
+  source $HOME/dotfiles/bash/aliases-osx
 fi
 
 # load linux aliases
 if [ $(uname) == "Linux" ]; then
-  source $HOME/.dotfiles/.aliases-linux
+  source $HOME/dotfiles/bash/aliases-linux
 fi
 
 # Draw an ascii tree of the filesystem from where you are
