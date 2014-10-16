@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH="$HOME/Library/Haskell/bin:$PATH"
+export GOROOT=`go env GOROOT`
+export PATH=$PATH:$GOROOT/bin
+
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
