@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+git submodule update
+
 if [[ ! -a ~/.vimrc ]]
 then
   mkdir -p $HOME/.vim/

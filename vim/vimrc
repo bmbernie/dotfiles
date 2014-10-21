@@ -1,4 +1,4 @@
-" .vimrc
+" vimrc
 " brandon bernie
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -10,7 +10,7 @@ set nocompatible
 filetype off
 
 " Setup vunle
-set rtp+=~/dotfiles/vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
