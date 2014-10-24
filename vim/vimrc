@@ -22,6 +22,7 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'bling/vim-airline'
+Plugin 'SirVer/ultisnips'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Valloric/YouCompleteMe'
@@ -43,7 +44,7 @@ augroup vimrc
   " Return to last edit position when opening files (You want this!)
   autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
   " Source the vimrc file after saving it
-  autocmd bufwritepost .vimrc source $MYVIMRC
+  autocmd bufwritepost vimrc source $MYVIMRC
   " Stop that dumb autocommenting
   autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 augroup END
@@ -276,3 +277,13 @@ au vimrc FileType go nmap <Leader>ds <Plug>(go-def-split)
 au vimrc FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au vimrc FileType go nmap <Leader>dt <Plug>(go-def-tab)
 au vimrc FileType go nmap <Leader>ge <Plug>(go-rename)
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                UltiSnips                                "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" we can't use <tab> as our snippet key since we use that with YouCompleteMe
+let g:UltiSnipsExpandTrigger       = "<c-d>"
+let g:UltiSnipsJumpForwardTrigger  = "<c-s>"
+let g:UltiSnipsJumpBackwardTrigger = "<c-a>"
+let g:snips_author                 = 'Brandon Bernie'
