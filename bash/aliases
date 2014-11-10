@@ -22,7 +22,7 @@ alias tu='top -o cpu'
 alias tm='top -o vsize'
 
 # Less with colors
-alias less='less -irX'
+alias less='less -iRX'
 
 # ROT13-encode text. Works for decoding, too! ;)
 alias rot13='tr a-zA-Z n-za-mN-ZA-M'
@@ -40,6 +40,7 @@ alias reload="exec $BASH -l"
 alias cd..="cd .."
 alias cd.="cd ."
 
+alias timestamp="date +%s"
 #############################################################################
 # Network tools
 #############################################################################
@@ -49,6 +50,3 @@ alias ipext='curl -s http://checkip.dyndns.org/ | grep -o '[0-9][0-9]*.[0-9][0-9
 
 # list all ips 
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
-
-# Enhanced WHOIS lookups
-alias whois="whois -h whois-servers.net"
