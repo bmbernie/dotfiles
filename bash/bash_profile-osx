@@ -22,4 +22,5 @@ if [ -d $HOME/.dotfiles/bash_completion.d ]; then
   unset usrcomp
 fi
 
-source `brew --repository`/Library/Contributions/brew_bash_completion.sh
+source $(brew --repository)/Library/Contributions/brew_bash_completion.sh
+source $(brew --prefix)/etc/bash_completion
