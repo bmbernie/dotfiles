@@ -22,5 +22,12 @@ if [ -d $HOME/.dotfiles/bash_completion.d ]; then
   unset usrcomp
 fi
 
+have()
+{
+  unset -v have
+  PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin type $1 &>/dev/null &&
+  have="yes"
+}
+
 source $(brew --repository)/Library/Contributions/brew_bash_completion.sh
 source $(brew --prefix)/etc/bash_completion

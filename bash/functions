@@ -134,3 +134,9 @@ function flactomp3(){
 function tre() {
   tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX
 }
+
+function have() {
+  unset -v have
+  PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin type $1 &>/dev/null &&
+  have="yes"
+}
