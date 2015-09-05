@@ -30,14 +30,6 @@
 # What  : All that post install configuration stuff 
 #############################################################################
 
-#############################################################################
-# USAGE = 'source config.osx hostname'
-#############################################################################
-if [ -z $1 ]; then
-  echo "Usage: config.osx hostname"
-  return
-fi
-
 # Ask for the administrator password upfront
 sudo -v
 
@@ -49,10 +41,10 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ###############################################################################
 
 # Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName "Orca"
-sudo scutil --set HostName "Orca"
-sudo scutil --set LocalHostName "Orca"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "Orca"
+#sudo scutil --set ComputerName "Orca"
+#sudo scutil --set HostName "Orca"
+#sudo scutil --set LocalHostName "Orca"
+#sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "Orca"
 
 ###############################################################################
 # System                                                                      #

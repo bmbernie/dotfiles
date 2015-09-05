@@ -37,7 +37,7 @@ for brew_commands in "doctor" "update" "upgrade"; do
 done
 
 echo -e "\nHomebrew: Installing development tools"
-for package in "rlwrap" "readline" "gettext" "coreutils" "bash" "tmux" "vim" "macvim" "wget" "curl" "python"; do
+for package in "rlwrap" "readline" "gettext" "coreutils" "bash" "tmux" "vim" "wget" "curl" "python"; do
   echo -e "[Brewing]  -  $package"
   [ `brew ls | grep "$package" -c` == "0" ] && brew install "$package"
 done
