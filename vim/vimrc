@@ -223,7 +223,7 @@ let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:ycm_enable_diagnostic_signs = 1
-let g:ycm_enable_diagnostic_highlighting = 0
+let g:ycm_enable_diagnostic_highlighting = 1
 let g:ycm_always_populate_location_list = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_min_num_identifier_candidate_chars = 2
@@ -274,3 +274,9 @@ au vimrc FileType go nmap <Leader>ds <Plug>(go-def-split)
 au vimrc FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au vimrc FileType go nmap <Leader>dt <Plug>(go-def-tab)
 au vimrc FileType go nmap <Leader>ge <Plug>(go-rename)
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constructors = 1
+let g:go_fmt_command = "goimports"
