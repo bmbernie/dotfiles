@@ -32,3 +32,10 @@ shopt -s checkwinsize
 for option in autocd globstar; do
   shopt -s "$option" 2> /dev/null
 done
+
+export iOSOpenDevPath=/opt/iOSOpenDev
+export iOSOpenDevDevice=
+export PATH=/opt/iOSOpenDev/bin:$PATH
+
+export PATH=/usr/texbin:$PATH
+

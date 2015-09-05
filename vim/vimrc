@@ -22,7 +22,6 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'bling/vim-airline'
-Plugin 'SirVer/ultisnips'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Valloric/YouCompleteMe'
@@ -91,19 +90,19 @@ set switchbuf=useopen,usetab
 
 " EDITOR SETTINGS
 set ignorecase          " case insensitive searching
-set smartcase           " but become case sensitive if you type uppercase characters
-" this can cause problems with other filetypes
-" see comment on this SO question http://stackoverflow.com/questions/234564/tab-key-4-spaces-and-auto-indent-after-curly-braces-in-vim/234578#234578
-"set smartindent         " smart auto indenting
+set smartcase           " but become case sensitive if you type uppercase 
+                        " characters
 set autoindent          " on new lines, match indent of previous line
 set copyindent          " copy the previous indentation on autoindenting
 set cindent             " smart indenting for c-like code
-set cino=b1,g0,N-s,t0,(0,W4  " see :h cinoptions-values
+
+" See :h cinoptions-values
+set cino=b1,g0,N-s,t0,(0,W4 
 set smarttab            " smart tab handling for indenting
-set magic               " change the way backslashes are used in search patterns
+set magic               " change the way backslashes are used in search 
+                        " patterns
 set bs=indent,eol,start " Allow backspacing over everything in insert mode
 set nobackup            " no backup~ files.
-
 set tabstop=2           " number of spaces a tab counts for
 set shiftwidth=2        " spaces for autoindents
 set softtabstop=2
@@ -111,11 +110,8 @@ set shiftround          " makes indenting a multiple of shiftwidth
 set expandtab           " turn a tab into spaces
 set laststatus=2        " the statusline is now always shown
 set noshowmode          " don't show the mode ("-- INSERT --") at the bottom
-
-" misc settings
-set fileformat=unix     " file mode is unix
-set fileformats=unix,dos,mac   " detects unix, dos, mac file formats in that order
-
+set fileformat=unix     " file mode is unix - detect order: unix, dos, mac
+set fileformats=unix,dos,mac 
 set viminfo='20,\"500   " remember copy registers after quitting in the .viminfo
                         " file -- 20 jump links, regs up to 500 lines'
 set hidden              " allows making buffers hidden even with unsaved changes
@@ -185,7 +181,7 @@ set gdefault            " this makes search/replace global by default
 " enforces a specified line-length and auto inserts hard line breaks when we
 " reach the limit; in Normal mode, you can reformat the current paragraph with
 " gqap.
-set textwidth=80
+"set textwidth=80
 
 " this makes the color after the textwidth column highlighted
 set colorcolumn=+1
@@ -193,16 +189,14 @@ set colorcolumn=+1
 " options for formatting text; see :h formatoptions
 set formatoptions=tcroqnj
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                            custom mappings                              "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                       ***  HERE BE PLUGINS  ***                         "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Solarized                                "
@@ -228,8 +222,11 @@ let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
 "                              YouCompleteMe                              "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+let g:ycm_enable_diagnostic_signs = 1
+let g:ycm_enable_diagnostic_highlighting = 0
+let g:ycm_always_populate_location_list = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_min_num_identifier_candidate_chars = 4
+let g:ycm_min_num_identifier_candidate_chars = 2
 let g:ycm_filetype_specific_completion_to_disable = {'javascript': 1}
 
 nnoremap <leader>y :YcmForceCompileAndDiagnostics<cr>
@@ -277,13 +274,3 @@ au vimrc FileType go nmap <Leader>ds <Plug>(go-def-split)
 au vimrc FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au vimrc FileType go nmap <Leader>dt <Plug>(go-def-tab)
 au vimrc FileType go nmap <Leader>ge <Plug>(go-rename)
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                UltiSnips                                "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" we can't use <tab> as our snippet key since we use that with YouCompleteMe
-let g:UltiSnipsExpandTrigger       = "<c-d>"
-let g:UltiSnipsJumpForwardTrigger  = "<c-s>"
-let g:UltiSnipsJumpBackwardTrigger = "<c-a>"
-let g:snips_author                 = 'Brandon Bernie'
