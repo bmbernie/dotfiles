@@ -5,13 +5,13 @@
 #############################################################################
 
 # load osx aliases
-if [ $(uname) == "Darwin" ]; then
-  source $HOME/dotfiles/bash/aliases-osx
+if [ "$(uname)" == "Darwin" ]; then
+  source "$HOME"/dotfiles/bash/aliases-osx
 fi
 
 # load linux aliases
-if [ $(uname) == "Linux" ]; then
-  source $HOME/dotfiles/bash/aliases-linux
+if [ "$(uname)" == "Linux" ]; then
+  source "$HOME"/dotfiles/bash/aliases-linux
 fi
 
 # Draw an ascii tree of the filesystem from where you are
@@ -34,19 +34,14 @@ alias sudo='sudo '
 alias gurl='curl --compressed'
 
 # quick reload
-alias reload="exec $BASH -l"
+alias reload='exec $(BASH) -l'
 
 # common misspellings
 alias cd..="cd .."
 alias cd.="cd ."
 
 alias timestamp="date +%s"
+
 #############################################################################
 # Network tools
 #############################################################################
-
-# External IP
-alias ipext='curl -s http://checkip.dyndns.org/ | grep -o '[0-9][0-9]*.[0-9][0-9]*.[0-9][0-9]*.[0-9]*''
-
-# list all ips 
-alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"

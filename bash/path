@@ -1,9 +1,16 @@
 #!/usr/bin/env bash
 
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
-export GOROOT=`go env GOROOT`
+GOROOT="$(go env GOROOT)"
+export GOROOT
 export PATH=$PATH:$GOROOT/bin
 
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
+
+export iOSOpenDevPath=/opt/iOSOpenDev
+export iOSOpenDevDevice=
+export PATH=/opt/iOSOpenDev/bin:$PATH
+
+export PATH=/usr/texbin:$PATH

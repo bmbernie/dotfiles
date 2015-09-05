@@ -1,33 +1,26 @@
 #!/usr/bin/env bash
 
 # Auto Completion
-bind `set completion-ignore-case on`
-bind `set show-all-if-ambiguous on`
+bind "$(set completion-ignore-case on)"
+bind "$(set show-all-if-ambiguous on)"
 
 if [ -d /usr/local/etc/bash_completion.d ]; then
-  for usrcomp in `find /usr/local/etc/bash_completion.d`; do
-    if [ -f $usrcomp ]; then
-      source $usrcomp;
+  for usrcomp in $(/usr/local/etc/bash_completion.d/*); do
+    if [ -f "$usrcomp" ]; then
+      source "$usrcomp";
     fi;
   done
   unset usrcomp
 fi
 
-if [ -d $HOME/.dotfiles/bash_completion.d ]; then
-  for usrcomp in `find $HOME/dotfiles/bash/bash_completion.d`; do
-    if [ -f $usrcomp ]; then
-      source $usrcomp;
+if [ -d "$HOME"/.dotfiles/bash_completion.d ]; then
+  for usrcomp in $("$HOME"/dotfiles/bash/bash_completion.d/*); do
+    if [ -f "$usrcomp" ]; then
+      source "$usrcomp";
     fi;
   done
   unset usrcomp
 fi
 
-have()
-{
-  unset -v have
-  PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin type $1 &>/dev/null &&
-  have="yes"
-}
-
-source $(brew --repository)/Library/Contributions/brew_bash_completion.sh
-source $(brew --prefix)/etc/bash_completion
+source "$(brew --repository)"/Library/Contributions/brew_bash_completion.sh
+source "$(brew --prefix)"/etc/bash_completion
