@@ -34,7 +34,7 @@ alias sudo='sudo '
 alias gurl='curl --compressed'
 
 # quick reload
-alias reload='exec $(BASH) -l'
+alias reload='exec $($BASH -l)'
 
 # common misspellings
 alias cd..="cd .."
