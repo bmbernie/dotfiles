@@ -4,18 +4,7 @@
 bind "$(set completion-ignore-case on)"
 bind "$(set show-all-if-ambiguous on)"
 
-if [ -d /usr/local/etc/bash_completion.d ]; then
-  for usrcomp in $(ls /usr/local/etc/bash_completion.d/); do
-    if [ -f "$usrcomp" ]; then
-      usrcomp="/usr/local/etc/bash_completion.d/""$usrcomp"
-      source "$usrcomp";
-      echo "$usrcomp"
-    fi;
-  done
-  unset usrcomp
-fi
-
-if [ -d "$HOME"/.dotfiles/bash_completion.d ]; then
+if [ -d "$HOME"/dotfiles/bash_completion.d ]; then
   for usrcomp in $("$HOME"/dotfiles/bash/bash_completion.d/*); do
     if [ -f "$usrcomp" ]; then
       usrcomp="$HOME""/dotfiles/bash/bash_completion.d/""$usrcomp"
@@ -25,6 +14,3 @@ if [ -d "$HOME"/.dotfiles/bash_completion.d ]; then
   done
   unset usrcomp
 fi
-
-source "$(brew --repository)"/Library/Contributions/brew_bash_completion.sh
-source "$(brew --prefix)"/etc/bash_completion
