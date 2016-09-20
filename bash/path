@@ -9,8 +9,8 @@ export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
 
-export iOSOpenDevPath=/opt/iOSOpenDev
-export iOSOpenDevDevice=
-export PATH=/opt/iOSOpenDev/bin:$PATH
+#export iOSOpenDevPath=/opt/iOSOpenDev
+#export iOSOpenDevDevice=
+#export PATH=/opt/iOSOpenDev/bin:$PATH
 
-export PATH=/usr/texbin:$PATH
+#export PATH=/usr/texbin:$PATH
