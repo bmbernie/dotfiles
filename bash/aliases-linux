@@ -6,4 +6,8 @@
 
 eval "$(dircolors ~/dotfiles/dircolors-solarized/dircolors.256dark)"
 alias ls="ls --color=always"
-alias ll="ls -al"
+alias ll="ls -alF"
+alias la="ls -A"
+alias l="ls -CF"
+
+alias burp='java -XX:MaxPermSize=1G -Xmx1024m -jar ~/tools/burp/burpsuite_pro.jar > /dev/null 2>&1 &'
