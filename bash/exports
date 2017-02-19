@@ -27,8 +27,17 @@ fi
 export MANPAGER="less -X"
 export PAGER="less"
 
+# CHROMIUM - For Web App Security Testing
+#
+# Do not hide any extensions in the about:extensions dialog
+export CHROMIUM_FLAGS="$CHROMIUM_FLAGS --show-component-extension-options"
+
+# Disable Chromium security features for web app testing
+export CHROMIUM_FLAGS="$CHROMIUM_FLAGS --disable-web-security"
+
+
 # Always enable colored `grep` output
-export GREP_OPTIONS="--color=auto"
+#export GREP_OPTIONS="--color=auto"
 
 # Link Homebrew casks in `/Applications` rather than `~/Applications`
 # export HOMEBREW_CASK_OPTS="--appdir=/Applications"
