@@ -15,3 +15,4 @@ alias burp='java -XX:MaxPermSize=1G -Xmx1024m -jar ~/tools/burp/burpsuite_pro.ja
 alias grep="grep --color"
 alias pbcopy="xclip -selection c"
 alias pbpaste="xclip -selection clipboard -o"
+alias cowsay="/usr/games/cowsay"
