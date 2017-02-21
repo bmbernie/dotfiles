@@ -11,3 +11,5 @@ alias la="ls -A"
 alias l="ls -CF"
 
 alias burp='java -XX:MaxPermSize=1G -Xmx1024m -jar ~/tools/burp/burpsuite_pro.jar > /dev/null 2>&1 &'
+
+alias grep="grep --color"

@@ -109,11 +109,11 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
+bindsym $mod+1 workspace 1:     web
+bindsym $mod+2 workspace 2:     burp
+bindsym $mod+3 workspace 3:     bmb.sh
+bindsym $mod+4 workspace 4:     mail
+bindsym $mod+5 workspace 5:     chat
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
@@ -121,11 +121,11 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+1 move container to workspace 1:     web
+bindsym $mod+Shift+2 move container to workspace 2:     burp
+bindsym $mod+Shift+3 move container to workspace 3:     bmb.sh
+bindsym $mod+Shift+4 move container to workspace 4:     mail
+bindsym $mod+Shift+5 move container to workspace 5:     chat
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
@@ -137,8 +137,9 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
+bindsym $mod+Shift+e exec i3-msg exit
 bindsym Control+$mod+l exec ~/dotfiles/i3/lockscreen.sh
 
 # resize window (you can also use the mouse for that)
@@ -185,6 +186,21 @@ bar {
   }
 }
 
+# Press $mod+o followed by either f, t, Esc or Return to launch firefox,
+# thunderbird or return to the default mode, respectively.
+set $mode_launcher Launch: google-[c]hrome chromium-[b]rowser bu[r]p [w]ireshark
+bindsym $mod+o mode "$mode_launcher"
+
+mode "$mode_launcher" {
+    bindsym c exec google-chrome
+    bindsym b exec chromium-browser
+		bindsym r exec burp
+		bindsym w exec wireshark
+
+    bindsym Esc mode "default"
+    bindsym Return mode "default"
+}
+
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
@@ -202,5 +218,14 @@ bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+
+exec i3-msg "workspace 1:     web; append_layout /home/bmb/dotfiles/i3/ws-main.json; workspace 1:     web"
+exec i3-msg "workspace 1:     web; exec i3-sensible-terminal; exec i3-sensible-terminal; exec google-chrome; worspace 1:     web"
+exec i3-msg "workspace 2:     burp; append_layout /home/bmb/dotfiles/i3/ws-burp.json; workspace 1:     web"
+exec i3-msg "workspace 3:     bmb.sh; append_layout /home/bmb/dotfiles/i3/ssh-burp.json; workspace 1:     web"
+
+#Turn on Natural Scrolling
+exec xinput set-prop "DLL075B:01 06CB:76AF Touchpad" 285 1
+#exec xinput set-prop "DLL075B:01 06CB:76AF Touchpad" 285 1
 
 exec compton -f
