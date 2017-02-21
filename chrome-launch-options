@@ -1,0 +1,1 @@
+--disable-gpu-driver-bug-workarounds --enable-native-gpu-memory-buffers --flag-switches-begin --force-gpu-rasterization --ignore-gpu-blacklist --flag-switches-end
