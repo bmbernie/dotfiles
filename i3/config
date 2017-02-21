@@ -109,28 +109,28 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1:     web
+bindsym $mod+1 workspace 1:     main
 bindsym $mod+2 workspace 2:     burp
 bindsym $mod+3 workspace 3:     bmb.sh
-bindsym $mod+4 workspace 4:     mail
+bindsym $mod+0 workspace 10:     mail
 bindsym $mod+5 workspace 5:     chat
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+4 workspace 4
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1:     web
+bindsym $mod+Shift+1 move container to workspace 1:     main
 bindsym $mod+Shift+2 move container to workspace 2:     burp
 bindsym $mod+Shift+3 move container to workspace 3:     bmb.sh
-bindsym $mod+Shift+4 move container to workspace 4:     mail
+bindsym $mod+Shift+0 move container to workspace 10:     mail
 bindsym $mod+Shift+5 move container to workspace 5:     chat
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+4 move container to workspace 4
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -179,16 +179,16 @@ bar {
     background          #000000
     separator           #666666
     statusline          #ffffff
-    focused_workspace   $inactive-bg-color  $inactive-bg-color  $text-color           #00ff00
+                        #border             #backround          #text
+    focused_workspace   $inactive-bg-color  $inactive-bg-color  #00ffff               #00ff00
     active_workspace    $inactive-bg-color  $inactive-bg-color  $inactive-text-color  #00ff00
     inactive_workspace  $inactive-bg-color  $inactive-bg-color  $inactive-text-color  #00ff00
     urgent_workspace    $urgent-bg-color    $urgent-bg-color    $text-color           #00ff00
   }
 }
 
-# Press $mod+o followed by either f, t, Esc or Return to launch firefox,
-# thunderbird or return to the default mode, respectively.
-set $mode_launcher Launch: google-[c]hrome chromium-[b]rowser bu[r]p [w]ireshark
+# program launcher
+set $mode_launcher Launch: google-[c]hrome chromium-[b]rowser bu[r]p [w]ireshark [d]iscord-canary [s]lack
 bindsym $mod+o mode "$mode_launcher"
 
 mode "$mode_launcher" {
@@ -196,6 +196,8 @@ mode "$mode_launcher" {
     bindsym b exec chromium-browser
 		bindsym r exec burp
 		bindsym w exec wireshark
+		bindsym d exec discord-canary
+		bindsym s exec slack
 
     bindsym Esc mode "default"
     bindsym Return mode "default"
@@ -210,22 +212,41 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
-# Touchpad controls
-#bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
-
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-exec i3-msg "workspace 1:     web; append_layout /home/bmb/dotfiles/i3/ws-main.json; workspace 1:     web"
-exec i3-msg "workspace 1:     web; exec i3-sensible-terminal; exec i3-sensible-terminal; exec google-chrome; worspace 1:     web"
-exec i3-msg "workspace 2:     burp; append_layout /home/bmb/dotfiles/i3/ws-burp.json; workspace 1:     web"
-exec i3-msg "workspace 3:     bmb.sh; append_layout /home/bmb/dotfiles/i3/ssh-burp.json; workspace 1:     web"
+exec i3-msg "workspace 1:     main; append_layout /home/bmb/dotfiles/i3/ws-main.json"
+exec i3-msg "workspace 2:     burp; append_layout /home/bmb/dotfiles/i3/ws-burp.json"
+exec i3-msg "workspace 3:     bmb.sh; append_layout /home/bmb/dotfiles/i3/ws-ssh-bmbsh.json"
+exec i3-msg "workspace 5:     chat; append_layout /home/bmb/dotfiles/i3/ws-chat.json"
+exec i3-msg "workspace 10:     mail; append_layout /home/bmb/dotfiles/i3/ws-mail.json"
+
+#workspace 1 - launch programs
+exec i3-msg "workspace 1:     main; exec gnome-terminal; exec gnome-terminal; exec google-chrome"
+
+#workspace 2 - launch programs
+exec i3-msg "workspace 2:     burp; exec chromium-browser; workspace 1:     main"
+
+#workspace 3 - launch programs
+exec i3-msg "workspace 3:     bmb.sh; exec gnome-terminal --role=wssshbmb -x ssh b@bmb.sh"
+exec i3-msg "workspace 3:     bmb.sh; exec gnome-terminal --role=wssshsys"
+exec i3-msg "workspace 1:     main"
+
+#workspace 5 - launch programs
+exec i3-msg "workspace 5:     chat; exec gnome-terminal --role=wschatirc -x ssh b@bmb.sh"
+exec i3-msg "workspace 5:     chat; exec discord-canary"
+exec i3-msg "workspace 5:     chat; exec slack"
+exec i3-msg "workspace 5:     chat; exec google-chrome"
+exec i3-msg "workspace 1:     main"
+
+#workspace 10 - Launch programs
+exec i3-msg "workspace 10:     mail; exec thunderbird"
+exec i3-msg "workspace 1:     main"
 
 #Turn on Natural Scrolling
 exec xinput set-prop "DLL075B:01 06CB:76AF Touchpad" 285 1
-#exec xinput set-prop "DLL075B:01 06CB:76AF Touchpad" 285 1
 
 exec compton -f
