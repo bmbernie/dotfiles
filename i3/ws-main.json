@@ -21,7 +21,8 @@
             "percent": 0.5,
             "swallows": [
                {
-                "class": "^Gnome\\-terminal$"
+                  "class": "^Gnome\\-terminal$",
+                  "window_role": "^main1$"
                }
             ],
             "type": "con"
@@ -40,7 +41,11 @@
             "percent": 0.5,
             "swallows": [
                {
-                "class": "^Gnome\\-terminal$"
+                "class": "^Gnome\\-terminal$",
+               // "instance": "^gnome\\-terminal\\-server$",
+               // "title": "^Terminal$",
+               // "transient_for": "^$",
+                "window_role": "^main2$"
                }
             ],
             "type": "con"
@@ -55,15 +60,16 @@
     "geometry": {
        "height": 1730,
        "width": 1596,
-       "x": 1604,
-       "y": 70
+       "x": 20,
+       "y": 90
     },
-    "name": "i3: Layout saving in i3 - Google Chrome",
+    "name": "New Tab - Google Chrome",
     "percent": 0.5,
     "swallows": [
        {
-        "class": "^Google\\-chrome$",
-        "instance": "^google\\-chrome$"
+          "class": "^Google\\-chrome$"
+       // "transient_for": "^$",
+       // "window_role": "^browser$"
        }
     ],
     "type": "con"

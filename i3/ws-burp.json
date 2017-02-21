@@ -13,7 +13,7 @@
     "percent": 0.5,
     "swallows": [
        {
-         "class": "^burp\\-StartBurp$"
+          "class": "^burp\\-StartBurp$"
        }
     ],
     "type": "con"
@@ -29,7 +29,7 @@
        "x": 0,
        "y": 128
     },
-    "name": "chrome://gpu - Chromium",
+    "name": "New Tab - Chromium",
     "percent": 0.5,
     "swallows": [
        {

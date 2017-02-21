@@ -225,7 +225,9 @@ exec i3-msg "workspace 5:     chat; append_layout /home/bmb/dotfiles/i3/ws-ch
 exec i3-msg "workspace 10:     mail; append_layout /home/bmb/dotfiles/i3/ws-mail.json"
 
 #workspace 1 - launch programs
-exec i3-msg "workspace 1:     main; exec gnome-terminal; exec gnome-terminal; exec google-chrome"
+exec i3-msg "workspace 1:     main; exec gnome-terminal --role main1"
+exec i3-msg "exec gnome-terminal --role=main2"
+exec i3-msg "exec google-chrome"
 
 #workspace 2 - launch programs
 exec i3-msg "workspace 2:     burp; exec chromium-browser; workspace 1:     main"
@@ -239,7 +241,6 @@ exec i3-msg "workspace 1:     main"
 exec i3-msg "workspace 5:     chat; exec gnome-terminal --role=wschatirc -x ssh b@bmb.sh"
 exec i3-msg "workspace 5:     chat; exec discord-canary"
 exec i3-msg "workspace 5:     chat; exec slack"
-exec i3-msg "workspace 5:     chat; exec google-chrome"
 exec i3-msg "workspace 1:     main"
 
 #workspace 10 - Launch programs
