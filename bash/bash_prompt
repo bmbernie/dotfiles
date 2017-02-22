@@ -68,6 +68,6 @@ if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/n
     git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
   }
   
-  PS1="[ \[${BOLD}${CYAN}\]\u \[$BASE0\]@ \[$YELLOW\]\h\[$BASE0\] ] in \[${BOLD}$BLUE\]${PWD/#$HOME/~}\[$BASE0\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$YELLOW\]\$(parse_git_branch)\[$BASE0\] \$ \[$RESET\]"
+  PS1="[ \[${BOLD}${CYAN}\]\u \[$BASE0\]@ \[$YELLOW\]\h\[$BASE0\] \[${RESET}\]] in \[${BOLD}$BLUE\]${PWD/#$HOME/~}\[$BASE0\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$YELLOW\]\$(parse_git_branch)\[$BASE0\] \$ \[$RESET\]"
 }
 PROMPT_COMMAND=_prompt
